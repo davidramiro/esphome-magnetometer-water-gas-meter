@@ -82,7 +82,7 @@ To verify compatibility install the Sensors app on your phone, place your phone 
 - ESP8266 or ESP32 with power adapter
   - I placed mine inside the garage
   - For high flow meters a dual core ESP32 is strongly preferred
-- QMC5883L or QMC5883P or HMC5883L or MMC5603 magnetometer
+- QMC5883L or QMC5883P or HMC5883L or MMC5603 or MLX90393 magnetometer
   - I placed mine in the water meter box 20ft away from the garage
 - Ethernet cable
   - I used 32.8ft or 10m direct burial CAT6. A user has reported they successfully used 75ft or 22.9m direct burial CAT6.
@@ -162,6 +162,8 @@ The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for th
         # files: [esphome-water-meter.yaml, hmc5883l.yaml]
         # Or if you are using MMC5603 instead of QMC5883L:
         # files: [esphome-water-meter.yaml, mmc5603.yaml]
+        # Or if you are using MLX90393 instead of QMC5883L:
+        # files: [esphome-water-meter.yaml, mlx90393.yaml]
         refresh: 0s
     ```
 
