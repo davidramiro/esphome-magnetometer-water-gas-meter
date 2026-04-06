@@ -609,7 +609,7 @@ sensor:
   - platform: template
     id: ${prefix_id}sensor_total_kwh
     name: ${prefix_name}Total kWh
-    lambda: return id(${prefix_id}sensor_total) * id(${prefix_id}heating_value).state * id(${prefix_id}correction_factor).state;
+    lambda: return id(${prefix_id}sensor_total).state * id(${prefix_id}heating_value).state * id(${prefix_id}correction_factor).state;
     update_interval: 10s
     accuracy_decimals: 3
     device_class: ${device_class}
