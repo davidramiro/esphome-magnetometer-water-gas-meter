@@ -160,35 +160,6 @@ number:
     entity_category: config
 
   - platform: template
-    id: ${prefix_id}heating_value
-    name: ${prefix_name}Heating Value
-    entity_category: config
-    mode: box
-    min_value: 1
-    max_value: 2000
-    step: 0.0001
-    initial_value: 11.493
-    update_interval: never
-    restore_value: true
-    optimistic: true
-    unit_of_measurement: kWh
-    icon: mdi:fire
-
-  - platform: template
-    id: ${prefix_id}correction_factor
-    name: ${prefix_name}Correction Factor
-    entity_category: config
-    mode: box
-    min_value: 0
-    max_value: 2
-    step: 0.00001
-    initial_value: 0.9514
-    update_interval: never
-    restore_value: true
-    optimistic: true
-    icon: mdi:multiplication
-
-  - platform: template
     id: ${prefix_id}magnet_span
     name: ${prefix_name}Magnet Span
     entity_category: config
@@ -601,21 +572,6 @@ sensor:
     icon: ${device_icon}
     state_class: total_increasing
     unit_of_measurement: ${volume_unit}
-    filters:
-      - or:
-          - throttle: 60s
-          - delta: 0
-
-  - platform: template
-    id: ${prefix_id}sensor_total_kwh
-    name: ${prefix_name}Total kWh
-    lambda: return id(${prefix_id}sensor_total).state * id(${prefix_id}heating_value).state * id(${prefix_id}correction_factor).state;
-    update_interval: 10s
-    accuracy_decimals: 3
-    device_class: ${device_class}
-    icon: ${device_icon}
-    state_class: total_increasing
-    unit_of_measurement: kWh
     filters:
       - or:
           - throttle: 60s
